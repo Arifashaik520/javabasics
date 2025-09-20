@@ -15,7 +15,7 @@ interface Playable {
     void play();
 }
 
-class Demo implements Printable, Showable, Drawable, Playable {
+class Demo implements printable, Showable, Drawable, Playable {
     public void print() {
         System.out.println("Printing...");
     }
@@ -32,3 +32,4 @@ class Demo implements Printable, Showable, Drawable, Playable {
         System.out.println("Playing...");
     }
 }
+
