@@ -7,8 +7,15 @@ interface Showable {
     void show();
 }
 
-// A class implementing multiple interfaces
-class Demo implements printable, Showable {
+interface Drawable {
+    void draw();
+}
+
+interface Playable {
+    void play();
+}
+
+class Demo implements printable, Showable, Drawable, Playable {
     public void print() {
         System.out.println("Printing...");
     }
@@ -16,5 +23,12 @@ class Demo implements printable, Showable {
     public void show() {
         System.out.println("Showing...");
     }
-}
 
+    public void draw() {
+        System.out.println("Drawing...");
+    }
+
+    public void play() {
+        System.out.println("Playing...");
+    }
+}
