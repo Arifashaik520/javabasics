@@ -1,7 +1,6 @@
 package jdbcprograms.services;
 
 import java.sql.*;
-import javax.sql.*;
 import jdbcprograms.dao.DButil;
 
 public class CrudOperations {
@@ -14,15 +13,15 @@ public class CrudOperations {
         conn = DButil.getConnection();
         if (conn != null)
         {
-            System.out.println("✅ Database connection is active.\n");
+            System.out.println("Database connection is active.\n");
         }
         else 
         {
-            System.out.println("❌ Failed to connect to the database.\n");
+            System.out.println("Failed to connect to the database.\n");
         }
     }
 
-    // ---------------------- INSERT ----------------------
+    //INSERT 
     public static int addStudent(int sid, String sname) 
     {
         int n = 0;
@@ -31,7 +30,7 @@ public class CrudOperations {
             pst.setInt(1, sid);
             pst.setString(2, sname);
             n = pst.executeUpdate();
-            System.out.println("✔️ " + n + " record(s) inserted.");
+            System.out.println(n + " record(s) inserted.");
         } catch (Exception e)
         {
             e.printStackTrace();
@@ -39,7 +38,7 @@ public class CrudOperations {
         return n;
     }
 
-    // ---------------------- UPDATE ----------------------
+    //UPDATE
     public static int updateStudentName(int sid, String newName) 
     {
         int n = 0;
@@ -48,7 +47,7 @@ public class CrudOperations {
             pst.setString(1, newName);
             pst.setInt(2, sid);
             n = pst.executeUpdate();
-            System.out.println("✔️ " + n + " record(s) updated.");
+            System.out.println(n + " record(s) updated.");
         } catch (Exception e)
         {
             e.printStackTrace();
@@ -56,7 +55,7 @@ public class CrudOperations {
         return n;
     }
 
-    // ---------------------- DELETE ----------------------
+    //DELETE
     public static int deleteStudent(int sid)
     {
         int n = 0;
@@ -64,7 +63,7 @@ public class CrudOperations {
             pst = conn.prepareStatement("DELETE FROM student WHERE sid = ?");
             pst.setInt(1, sid);
             n = pst.executeUpdate();
-            System.out.println("✔️ " + n + " record(s) deleted.");
+            System.out.println(n + " record(s) deleted.");
         } catch (Exception e) 
         {
             e.printStackTrace();
@@ -72,13 +71,13 @@ public class CrudOperations {
         return n;
     }
 
-    // ---------------------- SELECT ALL ----------------------
+    // SELECT
     public static void displayAllStudents() 
     {
         try {
             pst = conn.prepareStatement("SELECT * FROM student");
             rs = pst.executeQuery();
-            System.out.println("\n📘 --- Student Table ---");
+            System.out.println("\n--- Student Table ---");
             while (rs.next()) {
                 System.out.println("ID: " + rs.getInt("sid") + " | Name: " + rs.getString("sname"));
             }
@@ -89,7 +88,7 @@ public class CrudOperations {
         }
     }
 
-    // ---------------------- SELECT ONE ----------------------
+    // SELECT ONE 
     public static void searchStudent(int sid)
     {
         try {
@@ -99,12 +98,12 @@ public class CrudOperations {
 
             if (rs.next()) 
             {
-                System.out.println("🎯 Student Found → ID: " + rs.getInt("sid") +
+                System.out.println("Student Found → ID: " + rs.getInt("sid") +
                                    ", Name: " + rs.getString("sname"));
             } 
             else
             {
-                System.out.println("❌ No student found with ID: " + sid);
+                System.out.println("No student found with ID: " + sid);
             }
         } catch (Exception e)
         {
