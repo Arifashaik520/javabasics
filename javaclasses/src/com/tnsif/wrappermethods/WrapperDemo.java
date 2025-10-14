@@ -71,7 +71,3 @@ public class WrapperDemo {
 		        System.out.println("Auto-unboxed boolean: " + bool2);
 		    }
 		}
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/master

@@ -23,18 +23,6 @@ class Demo implements printable, Showable, Drawable, Playable {
     public void show() {
         System.out.println("Showing...");
     }
-<<<<<<< HEAD
-=======
-
-    public void draw() {
-        System.out.println("Drawing...");
-    }
-
-    public void play() {
-        System.out.println("Playing...");
-    }
-}
->>>>>>> refs/remotes/origin/master
 
     public void draw() {
         System.out.println("Drawing...");

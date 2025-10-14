@@ -23,7 +23,12 @@ public class WaitNotifydemo {
         });
 
         t1.start();
-        try { Thread.sleep(500); } catch (Exception e) {}
+        try 
+        { 
+        	Thread.sleep(500);
+        	} 
+        catch (Exception e) {
+        }
         t2.start();
 
 	}
